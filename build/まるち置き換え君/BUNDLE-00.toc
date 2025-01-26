@@ -1,0 +1,3 @@
+([('まるち置き換え君',
+   '/Users/eightman/Desktop/趣味・同好会/MultReplacerApp/dist/まるち置き換え君',
+   'EXECUTABLE')],)

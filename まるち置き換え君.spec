@@ -37,3 +37,9 @@ exe = EXE(
     entitlements_file=None,
     icon=['icon.ico'],
 )
+app = BUNDLE(
+    exe,
+    name='まるち置き換え君.app',
+    icon='icon.ico',
+    bundle_identifier=None,
+)
