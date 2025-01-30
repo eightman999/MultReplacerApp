@@ -1,12 +1,13 @@
 import os
-import sys
-import requests
 import shutil
 import subprocess
-
+import sys
 import tkinter as tk
-from tkinter import filedialog, messagebox, ttk
+from tkinter import messagebox, ttk
+
+import requests
 from tools.line_tools import multi_replace
+
 
 class MultReplacerApp:
 
