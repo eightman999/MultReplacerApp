@@ -1,6 +1,11 @@
+import os
+import sys
+import requests
+import shutil
+import subprocess
+
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
-
 from tools.line_tools import multi_replace
 
 class MultReplacerApp:
@@ -8,9 +13,15 @@ class MultReplacerApp:
     def __init__(self, root):
         self.root = root
         version = self.get_version()
+        self.current_version = self.get_current_version()
         self.root.title(f"置き換え君 v{version}")
         self.root.geometry("1280x720")  # Set default window size to 720p
+        # GitHubリポジトリ情報
+        self.repo_owner = "eightman999"
+        self.repo_name = "MultReplacerApp"
 
+        # アップデート処理を実行
+        self.check_and_update()
         self.file_path = tk.StringVar()
 
         # File path selection
@@ -77,9 +88,93 @@ class MultReplacerApp:
             with open("version.txt", "r", encoding="utf-8") as file:
                 return file.read().strip()  # 改行や余分な空白を削除した文字列を返す
         except FileNotFoundError:
-            return ""  # ファイルが存在しない場合のデフォルトバージョン
+            return "x0.0.0"  # ファイルが存在しない場合のデフォルトバージョン
         except Exception as e:
             return f"Error ({e})"  # 他の予期しないエラーをデバッグ用に返す
+    def get_current_version(self):
+        """現在のバージョン情報を取得"""
+        try:
+            with open("version.txt", "r", encoding="utf-8") as f:
+                return f.read().strip()
+        except FileNotFoundError:
+            return "v0.0.0"  # デフォルトバージョン（バージョンファイルがない場合）
+
+    def get_latest_version(self):
+        """GitHubリポジトリから最新リリース情報を取得"""
+        url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/releases/latest"
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            data = response.json()
+            return data["tag_name"], data["assets"]  # 最新リリースバージョンとアセット情報を返す
+        else:
+            raise Exception(f"GitHub APIエラー: {response.status_code}")
+
+    def download_new_version(self, download_url, output_file):
+        """新しいバージョンのファイルをダウンロード"""
+        response = requests.get(download_url, stream=True)
+        with open(output_file, "wb") as f:
+            shutil.copyfileobj(response.raw, f)
+        print(f"新しいバージョンをダウンロードしました: {output_file}")
+
+    def replace_and_restart(self, new_file, is_mac=False):
+        """現在のアプリケーションを新しい実行ファイルで置き換え、再起動"""
+        current_executable = sys.executable  # 現在の実行ファイル
+        backup_file = current_executable + ".bak"
+
+        # 実行ファイルのバックアップ
+        shutil.move(current_executable, backup_file)
+        print("元の実行ファイルをバックアップしました")
+
+        # 新しいファイルを現在の実行ファイルとして置き換え
+        shutil.move(new_file, current_executable)
+        print("新しい実行ファイルで置き換えました")
+
+        # 新しいファイルで再起動
+        if is_mac:
+            subprocess.run(["open", current_executable])
+        else:
+            subprocess.Popen(current_executable, shell=True)
+
+        sys.exit()  # 現在のプロセスを終了
+
+    def check_and_update(self):
+        """バージョンを比較して必要ならアップデート"""
+        print(f"現在のバージョン: {self.current_version}")
+
+        try:
+            latest_version, assets = self.get_latest_version()
+            print(f"最新のバージョン: {latest_version}")
+
+            # バージョンの比較
+            if self.current_version == latest_version:
+                print("すでに最新のバージョンです。")
+                return
+
+            # プラットフォームごとに適切なアセットを選ぶ
+            is_mac = sys.platform == "darwin"
+            asset_name = "app.dmg" if is_mac else "app.exe"  # 更新対象のファイル
+            download_url = None
+
+            for asset in assets:
+                if asset_name in asset["name"]:
+                    download_url = asset["browser_download_url"]
+                    break
+
+            if not download_url:
+                print("ダウンロード可能なアセットが見つかりませんでした")
+                return
+
+            # 新しいバージョンをダウンロード
+            new_file = os.path.join(os.getcwd(), asset_name)
+            self.download_new_version(download_url, new_file)
+
+            # 実行ファイルを置き換えて再起動
+            self.replace_and_restart(new_file, is_mac=is_mac)
+
+        except Exception as e:
+            print(f"アップデート中にエラーが発生しました: {e}")
+
     def browse_file(self):
         from tkinter import filedialog
         file_path = filedialog.askopenfilename()
