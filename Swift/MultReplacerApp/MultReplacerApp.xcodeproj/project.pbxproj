@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		DFD233712E2689F900BB8B57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFD2335A2E2689F500BB8B57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFD233612E2689F500BB8B57;
+			remoteInfo = MultReplacerApp;
+		};
+		DFD2337B2E2689F900BB8B57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFD2335A2E2689F500BB8B57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFD233612E2689F500BB8B57;
+			remoteInfo = MultReplacerApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DFD233622E2689F500BB8B57 /* MultReplacerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultReplacerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFD233702E2689F900BB8B57 /* MultReplacerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultReplacerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFD2337A2E2689F900BB8B57 /* MultReplacerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultReplacerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DFD233642E2689F500BB8B57 /* MultReplacerApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MultReplacerApp;
+			sourceTree = "<group>";
+		};
+		DFD233732E2689F900BB8B57 /* MultReplacerAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MultReplacerAppTests;
+			sourceTree = "<group>";
+		};
+		DFD2337D2E2689F900BB8B57 /* MultReplacerAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MultReplacerAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DFD2335F2E2689F500BB8B57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD2336D2E2689F900BB8B57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD233772E2689F900BB8B57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DFD233592E2689F500BB8B57 = {
+			isa = PBXGroup;
+			children = (
+				DFD233642E2689F500BB8B57 /* MultReplacerApp */,
+				DFD233732E2689F900BB8B57 /* MultReplacerAppTests */,
+				DFD2337D2E2689F900BB8B57 /* MultReplacerAppUITests */,
+				DFD233632E2689F500BB8B57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DFD233632E2689F500BB8B57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFD233622E2689F500BB8B57 /* MultReplacerApp.app */,
+				DFD233702E2689F900BB8B57 /* MultReplacerAppTests.xctest */,
+				DFD2337A2E2689F900BB8B57 /* MultReplacerAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DFD233612E2689F500BB8B57 /* MultReplacerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFD233842E2689F900BB8B57 /* Build configuration list for PBXNativeTarget "MultReplacerApp" */;
+			buildPhases = (
+				DFD2335E2E2689F500BB8B57 /* Sources */,
+				DFD2335F2E2689F500BB8B57 /* Frameworks */,
+				DFD233602E2689F500BB8B57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DFD233642E2689F500BB8B57 /* MultReplacerApp */,
+			);
+			name = MultReplacerApp;
+			packageProductDependencies = (
+			);
+			productName = MultReplacerApp;
+			productReference = DFD233622E2689F500BB8B57 /* MultReplacerApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DFD2336F2E2689F900BB8B57 /* MultReplacerAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFD233872E2689F900BB8B57 /* Build configuration list for PBXNativeTarget "MultReplacerAppTests" */;
+			buildPhases = (
+				DFD2336C2E2689F900BB8B57 /* Sources */,
+				DFD2336D2E2689F900BB8B57 /* Frameworks */,
+				DFD2336E2E2689F900BB8B57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFD233722E2689F900BB8B57 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DFD233732E2689F900BB8B57 /* MultReplacerAppTests */,
+			);
+			name = MultReplacerAppTests;
+			packageProductDependencies = (
+			);
+			productName = MultReplacerAppTests;
+			productReference = DFD233702E2689F900BB8B57 /* MultReplacerAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DFD233792E2689F900BB8B57 /* MultReplacerAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFD2338A2E2689F900BB8B57 /* Build configuration list for PBXNativeTarget "MultReplacerAppUITests" */;
+			buildPhases = (
+				DFD233762E2689F900BB8B57 /* Sources */,
+				DFD233772E2689F900BB8B57 /* Frameworks */,
+				DFD233782E2689F900BB8B57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFD2337C2E2689F900BB8B57 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DFD2337D2E2689F900BB8B57 /* MultReplacerAppUITests */,
+			);
+			name = MultReplacerAppUITests;
+			packageProductDependencies = (
+			);
+			productName = MultReplacerAppUITests;
+			productReference = DFD2337A2E2689F900BB8B57 /* MultReplacerAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFD2335A2E2689F500BB8B57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					DFD233612E2689F500BB8B57 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					DFD2336F2E2689F900BB8B57 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DFD233612E2689F500BB8B57;
+					};
+					DFD233792E2689F900BB8B57 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = DFD233612E2689F500BB8B57;
+					};
+				};
+			};
+			buildConfigurationList = DFD2335D2E2689F500BB8B57 /* Build configuration list for PBXProject "MultReplacerApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DFD233592E2689F500BB8B57;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DFD233632E2689F500BB8B57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DFD233612E2689F500BB8B57 /* MultReplacerApp */,
+				DFD2336F2E2689F900BB8B57 /* MultReplacerAppTests */,
+				DFD233792E2689F900BB8B57 /* MultReplacerAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DFD233602E2689F500BB8B57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD2336E2E2689F900BB8B57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD233782E2689F900BB8B57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DFD2335E2E2689F500BB8B57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD2336C2E2689F900BB8B57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD233762E2689F900BB8B57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFD233722E2689F900BB8B57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFD233612E2689F500BB8B57 /* MultReplacerApp */;
+			targetProxy = DFD233712E2689F900BB8B57 /* PBXContainerItemProxy */;
+		};
+		DFD2337C2E2689F900BB8B57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFD233612E2689F500BB8B57 /* MultReplacerApp */;
+			targetProxy = DFD2337B2E2689F900BB8B57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DFD233822E2689F900BB8B57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DFD233832E2689F900BB8B57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		DFD233852E2689F900BB8B57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MultReplacerApp/MultReplacerApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = furinlab.MultReplacerApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DFD233862E2689F900BB8B57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MultReplacerApp/MultReplacerApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = furinlab.MultReplacerApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DFD233882E2689F900BB8B57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = furinlab.MultReplacerAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultReplacerApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MultReplacerApp";
+			};
+			name = Debug;
+		};
+		DFD233892E2689F900BB8B57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = furinlab.MultReplacerAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultReplacerApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MultReplacerApp";
+			};
+			name = Release;
+		};
+		DFD2338B2E2689F900BB8B57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = furinlab.MultReplacerAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MultReplacerApp;
+			};
+			name = Debug;
+		};
+		DFD2338C2E2689F900BB8B57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = furinlab.MultReplacerAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MultReplacerApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DFD2335D2E2689F500BB8B57 /* Build configuration list for PBXProject "MultReplacerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFD233822E2689F900BB8B57 /* Debug */,
+				DFD233832E2689F900BB8B57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFD233842E2689F900BB8B57 /* Build configuration list for PBXNativeTarget "MultReplacerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFD233852E2689F900BB8B57 /* Debug */,
+				DFD233862E2689F900BB8B57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFD233872E2689F900BB8B57 /* Build configuration list for PBXNativeTarget "MultReplacerAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFD233882E2689F900BB8B57 /* Debug */,
+				DFD233892E2689F900BB8B57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFD2338A2E2689F900BB8B57 /* Build configuration list for PBXNativeTarget "MultReplacerAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFD2338B2E2689F900BB8B57 /* Debug */,
+				DFD2338C2E2689F900BB8B57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DFD2335A2E2689F500BB8B57 /* Project object */;
+}

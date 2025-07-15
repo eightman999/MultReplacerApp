@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>置き換え君 Web版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>置き換え君 Web版</h1>
+    </header>
+
+    <main>
+        <!-- Section 1: File Input -->
+        <section id="file-handler">
+            <h2>1. ファイルを選択</h2>
+            <input type="file" id="file-input" accept=".txt,.csv,.json,.xml,.html,.js,.css,text/*">
+            <p id="file-name">ファイルが選択されていません。</p>
+            <div id="caution-label">
+                注意：英数変換キーなどを押すと、一文字としてカウントされることがあります！！
+            </div>
+        </section>
+
+        <!-- Section 2: Replacement Rules -->
+        <section id="rules-engine">
+            <h2>2. 置換ルールを定義</h2>
+            <div id="replacement-rows" class="scrollable">
+                <!-- Replacement rows will be dynamically inserted here -->
+            </div>
+            <button id="add-row-btn">追加</button>
+        </section>
+
+        <!-- Section 3: Execution -->
+        <section id="execution-zone">
+            <h2>3. 実行</h2>
+            <button id="execute-btn" disabled>実行</button>
+        </section>
+    </main>
+
+    <!-- Template for a single replacement row -->
+    <template id="replacement-row-template">
+        <div class="replacement-row">
+            <button class="delete-row-btn">削除</button>
+            <input type="text" class="before-input" placeholder="置換前のテキスト">
+            <span class="arrow">→</span>
+            <input type="text" class="after-input" placeholder="置換後のテキスト">
+        </div>
+    </template>
+
+    <!-- Modal for Confirmation and Preview -->
+    <div id="preview-modal" class="modal-container" style="display:none;">
+        <div class="modal-content">
+            <span id="modal-close-btn" class="modal-close">&times;</span>
+            <h2>確認</h2>
+            <p>以下の変更内容を確認してください。元のファイルは変更されません。</p>
+            <pre id="preview-content" class="scrollable"></pre>
+            <div class="modal-buttons">
+                <button id="cancel-btn">キャンセル</button>
+                <button id="save-btn">実行</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
