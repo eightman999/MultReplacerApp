@@ -15,9 +15,23 @@
 ## 各言語・フレームワーク版
 
 -   [**Python (Tkinter)**](./python/)
+-   [**Java (Swing)**](./Java/)
 -   [**Swift (SwiftUI)**](./Swift/)
 -   [**C++ (Qt)**](./C++Qt/)
 -   [**Web (HTML/CSS/JavaScript)**](./web/)
+
+## Java版のビルドと実行
+
+1.  **コンパイル:**
+    `Java/`ディレクトリに移動し、以下のコマンドでJavaファイルをコンパイルします。
+    ```bash
+    javac MultReplacerApp.java ReplacementItem.java ConfirmationDialog.java
+    ```
+2.  **実行:**
+    コンパイル後、以下のコマンドでアプリケーションを実行します。
+    ```bash
+    java MultReplacerApp
+    ```
 
 ## Swift/SwiftUI版のビルドと実行
 
