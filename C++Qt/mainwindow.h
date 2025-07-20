@@ -7,6 +7,7 @@
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QComboBox>
 #include <QLabel>
 #include <QScrollArea>
 #include <QFrame>
@@ -19,6 +20,7 @@
 #include <QList>
 #include <QTimer>
 #include <map>
+#include "translations.h"
 
 #include "replacementrow.h"
 #include "confirmationdialog.h"
@@ -79,6 +81,7 @@ private:
     QHBoxLayout *m_controlLayout;
     QPushButton *m_addRowButton;
     QPushButton *m_executeButton;
+    QComboBox *m_langCombo;
     
     // Data
     QList<ReplacementRowWidget*> m_replacementRows;

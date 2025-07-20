@@ -9,6 +9,8 @@ struct ReplacementItem: Identifiable, Hashable {
 
 struct ContentView: View {
     // MARK: - State Properties
+
+    @EnvironmentObject private var i18n: I18n
     
     @State private var filePath: String = ""
     @State private var replacements: [ReplacementItem] = [ReplacementItem()]
@@ -25,26 +27,31 @@ struct ContentView: View {
             
             // 1. ファイルパス選択エリア
             HStack {
-                Text("パス:")
-                TextField("ファイルパスを入力してください", text: $filePath)
+                Text(i18n.tr("path_label"))
+                TextField("", text: $filePath)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button("参照") {
+                Button(i18n.tr("browse")) {
                     selectFile()
                 }
+                Picker("", selection: $i18n.lang) {
+                    Text("ja").tag("ja")
+                    Text("en").tag("en")
+                }
+                .pickerStyle(MenuPickerStyle())
             }
             .padding([.horizontal, .top])
             
             // 2. 注意書き
-            Text("注意：大文字と小文字は区別されます。")
+            Text(i18n.tr("caution"))
                 .foregroundColor(.red)
                 .padding(.horizontal)
 
             // 3. 置換リスト
             VStack {
                 HStack {
-                    Text("置換前").frame(maxWidth: .infinity)
+                    Text(i18n.tr("before")).frame(maxWidth: .infinity)
                     Text("").frame(width: 20)
-                    Text("置換後").frame(maxWidth: .infinity)
+                    Text(i18n.tr("after")).frame(maxWidth: .infinity)
                     Text("").frame(width: 50) // 削除ボタン用のスペース
                 }
                 .padding(.horizontal)
@@ -52,12 +59,12 @@ struct ContentView: View {
                 ScrollView {
                     ForEach($replacements) { $item in
                         HStack {
-                            TextField("置換前の文字列", text: $item.before)
+                            TextField(i18n.tr("before"), text: $item.before)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                             
                             Image(systemName: "arrow.right")
                             
-                            TextField("置換後の文字列", text: $item.after)
+                            TextField(i18n.tr("after"), text: $item.after)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                             
                             Button(action: {
@@ -75,13 +82,13 @@ struct ContentView: View {
 
             // 4. 操作ボタン
             HStack {
-                Button("追加") {
+                Button(i18n.tr("add")) {
                     addReplacementRow()
                 }
                 
                 Spacer()
                 
-                Button("実行") {
+                Button(i18n.tr("execute")) {
                     executeReplacements()
                 }
                 .disabled(filePath.isEmpty)
@@ -98,7 +105,7 @@ struct ContentView: View {
             )
         }
         .alert(isPresented: $showingErrorAlert) {
-            Alert(title: Text("エラー"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            Alert(title: Text(i18n.tr("error")), message: Text(errorMessage), dismissButton: .default(Text("OK")))
         }
     }
     
@@ -136,7 +143,7 @@ struct ContentView: View {
     /// 置換処理を実行する
     private func executeReplacements() {
         guard !filePath.isEmpty, let url = URL(string: "file://\(filePath)") else {
-            showError("無効なファイルパスです。")
+            showError(i18n.tr("invalid_path"))
             return
         }
         
@@ -157,14 +164,14 @@ struct ContentView: View {
             showingConfirmationDialog = true
             
         } catch {
-            showError("ファイルの読み込みに失敗しました: \(error.localizedDescription)")
+            showError(i18n.tr("read_error") + " " + error.localizedDescription)
         }
     }
     
     /// 変更をファイルに保存する
     private func saveChanges() {
         guard let url = URL(string: "file://\(filePath)") else {
-            showError("無効なファイルパスです。")
+            showError(i18n.tr("invalid_path"))
             return
         }
         
@@ -172,7 +179,7 @@ struct ContentView: View {
             try newContent.write(to: url, atomically: true, encoding: .utf8)
             print("ファイルが正常に保存されました。")
         } catch {
-            showError("ファイルの保存に失敗しました: \(error.localizedDescription)")
+            showError(i18n.tr("save_error") + " " + error.localizedDescription)
         }
     }
     
@@ -192,7 +199,7 @@ struct ConfirmationDialog: View {
     
     var body: some View {
         VStack {
-            Text("置換結果のプレビュー")
+            Text(i18n.tr("preview_title"))
                 .font(.title)
                 .padding()
             
@@ -206,14 +213,14 @@ struct ConfirmationDialog: View {
             .padding()
             
             HStack {
-                Button("キャンセル") {
+                Button(i18n.tr("cancel")) {
                     isPresented = false
                 }
                 .keyboardShortcut(.cancelAction)
                 
                 Spacer()
                 
-                Button("実行して保存") {
+                Button(i18n.tr("execute_save")) {
                     onConfirm()
                     isPresented = false
                 }

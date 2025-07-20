@@ -1,0 +1,15 @@
+{
+    "title": "Multi Replacer Qt v1.0",
+    "browse": "Browse",
+    "path_label": "Path:",
+    "caution": "Caution: Using IME convert keys may count as a single character!",
+    "add": "Add",
+    "execute": "Execute",
+    "delete": "Delete",
+    "before_placeholder": "Text before replacement",
+    "after_placeholder": "Text after replacement",
+    "confirm": "Confirmation",
+    "confirm_message": "Review the changes below. Original file will not be modified.",
+    "cancel": "Cancel",
+    "execute_save": "Execute"
+}

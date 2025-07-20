@@ -1,0 +1,15 @@
+{
+    "title": "置き換え君 Qt版 v1.0",
+    "browse": "参照",
+    "path_label": "パス:",
+    "caution": "注意：英数変換キーなどを押すと、一文字としてカウントされることがあります！！",
+    "add": "追加",
+    "execute": "実行",
+    "delete": "削除",
+    "before_placeholder": "置換前のテキスト",
+    "after_placeholder": "置換後のテキスト",
+    "confirm": "確認",
+    "confirm_message": "以下の変更内容を確認してください。元のファイルは変更されません。",
+    "cancel": "キャンセル",
+    "execute_save": "実行"
+}

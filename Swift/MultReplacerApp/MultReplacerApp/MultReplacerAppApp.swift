@@ -12,6 +12,7 @@ struct MultReplacerAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(I18n.shared)
         }
     }
 }

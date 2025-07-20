@@ -3,49 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>置き換え君 Web版</title>
+    <title data-i18n="title">置き換え君 Web版</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>置き換え君 Web版</h1>
+        <h1 data-i18n="header_title">置き換え君 Web版</h1>
+        <select id="lang-selector">
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+        </select>
     </header>
 
     <main>
         <!-- Section 1: File Input -->
         <section id="file-handler">
-            <h2>1. ファイルを選択</h2>
+            <h2 data-i18n="section1_title">1. ファイルを選択</h2>
             <input type="file" id="file-input" accept=".txt,.csv,.json,.xml,.html,.js,.css,text/*">
-            <p id="file-name">ファイルが選択されていません。</p>
-            <div id="caution-label">
+            <p id="file-name" data-i18n="no_file_selected">ファイルが選択されていません。</p>
+            <div id="caution-label" data-i18n="caution_label">
                 注意：英数変換キーなどを押すと、一文字としてカウントされることがあります！！
             </div>
         </section>
 
         <!-- Section 2: Replacement Rules -->
         <section id="rules-engine">
-            <h2>2. 置換ルールを定義</h2>
+            <h2 data-i18n="section2_title">2. 置換ルールを定義</h2>
             <div id="replacement-rows" class="scrollable">
                 <!-- Replacement rows will be dynamically inserted here -->
             </div>
-            <button id="add-row-btn">追加</button>
+            <button id="add-row-btn" data-i18n="add_row">追加</button>
         </section>
 
         <!-- Section 3: Execution -->
         <section id="execution-zone">
-            <h2>3. 実行</h2>
-            <button id="execute-btn" disabled>実行</button>
+            <h2 data-i18n="section3_title">3. 実行</h2>
+            <button id="execute-btn" data-i18n="execute" disabled>実行</button>
         </section>
     </main>
 
     <!-- Template for a single replacement row -->
     <template id="replacement-row-template">
         <div class="replacement-row">
-            <button class="delete-row-btn">削除</button>
-            <input type="text" class="before-input" placeholder="置換前のテキスト">
+            <button class="delete-row-btn" data-i18n="delete_row">削除</button>
+            <input type="text" class="before-input" data-i18n-placeholder="before_placeholder" placeholder="置換前のテキスト">
             <span class="arrow">→</span>
-            <input type="text" class="after-input" placeholder="置換後のテキスト">
+            <input type="text" class="after-input" data-i18n-placeholder="after_placeholder" placeholder="置換後のテキスト">
         </div>
     </template>
 
@@ -53,12 +57,12 @@
     <div id="preview-modal" class="modal-container" style="display:none;">
         <div class="modal-content">
             <span id="modal-close-btn" class="modal-close">&times;</span>
-            <h2>確認</h2>
-            <p>以下の変更内容を確認してください。元のファイルは変更されません。</p>
+            <h2 data-i18n="confirm_title">確認</h2>
+            <p data-i18n="confirm_description">以下の変更内容を確認してください。元のファイルは変更されません。</p>
             <pre id="preview-content" class="scrollable"></pre>
             <div class="modal-buttons">
-                <button id="cancel-btn">キャンセル</button>
-                <button id="save-btn">実行</button>
+                <button id="cancel-btn" data-i18n="cancel">キャンセル</button>
+                <button id="save-btn" data-i18n="save">実行</button>
             </div>
         </div>
     </div>

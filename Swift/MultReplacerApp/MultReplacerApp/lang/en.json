@@ -1,0 +1,16 @@
+{
+    "path_label": "Path:",
+    "browse": "Browse",
+    "caution": "Note: Replacements are case sensitive.",
+    "before": "Before",
+    "after": "After",
+    "add": "Add",
+    "execute": "Execute",
+    "preview_title": "Replacement Preview",
+    "cancel": "Cancel",
+    "execute_save": "Execute and Save",
+    "error": "Error",
+    "invalid_path": "Invalid file path.",
+    "read_error": "Failed to read file:",
+    "save_error": "Failed to save file:"
+}

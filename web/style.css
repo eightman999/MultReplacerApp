@@ -26,6 +26,11 @@ header h1 {
     font-weight: 600;
 }
 
+header select {
+    margin-left: 1rem;
+    padding: 0.25rem;
+}
+
 /* Main Container */
 main {
     max-width: 1200px;
