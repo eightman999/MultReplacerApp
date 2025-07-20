@@ -1,0 +1,17 @@
+{
+  "title": "Multi Replacer v{version}",
+  "path_label": "Path:",
+  "browse": "Browse",
+  "caution": "Caution: Using IME convert keys may count as one character!",
+  "add": "Add",
+  "execute": "Execute",
+  "confirm_title": "Confirmation",
+  "cancel": "Cancel",
+  "completed": "Completed",
+  "replace_done": "Replacement finished.",
+  "invalid_path": "Invalid file path.",
+  "file_read_error": "Failed to read file:",
+  "preview_title": "Replacement Preview",
+  "execute_save": "Execute and Save",
+  "delete": "Delete"
+}

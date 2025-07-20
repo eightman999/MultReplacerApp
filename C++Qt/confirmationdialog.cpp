@@ -1,4 +1,5 @@
 #include "confirmationdialog.h"
+#include "translations.h"
 #include <QApplication>
 #include <QScreen>
 
@@ -20,7 +21,7 @@ ConfirmationDialog::ConfirmationDialog(QWidget *parent)
 
 void ConfirmationDialog::setupUI()
 {
-    setWindowTitle("確認");
+    setWindowTitle(Translations::tr("confirm"));
     setModal(true);
     
     // Main layout
@@ -29,7 +30,7 @@ void ConfirmationDialog::setupUI()
     m_mainLayout->setSpacing(15);
     
     // Title label
-    m_titleLabel = new QLabel("確認", this);
+    m_titleLabel = new QLabel(Translations::tr("confirm"), this);
     m_titleLabel->setStyleSheet(
         "QLabel {"
         "    font-size: 18px;"
@@ -40,7 +41,7 @@ void ConfirmationDialog::setupUI()
     );
     
     // Instruction label
-    m_instructionLabel = new QLabel("以下の変更内容を確認してください。元のファイルは変更されません。", this);
+    m_instructionLabel = new QLabel(Translations::tr("confirm_message"), this);
     m_instructionLabel->setStyleSheet(
         "QLabel {"
         "    font-size: 12px;"
@@ -70,7 +71,7 @@ void ConfirmationDialog::setupUI()
     m_buttonLayout->setSpacing(10);
     
     // Cancel button
-    m_cancelButton = new QPushButton("キャンセル", this);
+    m_cancelButton = new QPushButton(Translations::tr("cancel"), this);
     m_cancelButton->setMinimumSize(100, 35);
     m_cancelButton->setStyleSheet(
         "QPushButton {"
@@ -90,7 +91,7 @@ void ConfirmationDialog::setupUI()
     );
     
     // Execute button
-    m_executeButton = new QPushButton("実行", this);
+    m_executeButton = new QPushButton(Translations::tr("execute_save"), this);
     m_executeButton->setMinimumSize(100, 35);
     m_executeButton->setStyleSheet(
         "QPushButton {"

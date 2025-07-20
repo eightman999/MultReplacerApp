@@ -22,6 +22,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelBtn = document.getElementById('cancel-btn');
     const saveBtn = document.getElementById('save-btn');
     const replacementRowTemplate = document.getElementById('replacement-row-template');
+    const langSelector = document.getElementById('lang-selector');
+
+    let translations = {};
+    let currentLang = 'ja';
+
+    async function loadLanguage(lang) {
+        const response = await fetch(`lang/${lang}.json`);
+        translations = await response.json();
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[key]) {
+                el.textContent = translations[key];
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[key]) {
+                el.setAttribute('placeholder', translations[key]);
+            }
+        });
+
+        document.title = translations['title'] || document.title;
+    }
     
     // Initialize the application
     init();
@@ -34,6 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
         modalCloseBtn.addEventListener('click', hidePreview);
         cancelBtn.addEventListener('click', hidePreview);
         saveBtn.addEventListener('click', saveModifiedFile);
+        langSelector.addEventListener('change', () => {
+            currentLang = langSelector.value;
+            loadLanguage(currentLang);
+        });
         
         // Event delegation for delete buttons
         replacementRows.addEventListener('click', handleDeleteRow);
@@ -47,6 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add initial replacement row
         addReplacementRow();
+
+        // Load default language
+        loadLanguage(currentLang);
     }
     
     /**
@@ -58,15 +90,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!file) {
             fileContent = '';
             fileName = '';
-            fileNameDisplay.textContent = 'ファイルが選択されていません。';
+            fileNameDisplay.textContent = translations['no_file_selected'];
             executeBtn.disabled = true;
             return;
         }
         
         // Check if file is a text file
-        if (!file.type.startsWith('text/') && 
+        if (!file.type.startsWith('text/') &&
             !file.name.match(/\.(txt|csv|json|xml|html|js|css|md|log|ini|conf|cfg)$/i)) {
-            alert('テキストファイルを選択してください。');
+            alert(translations['select_text_file']);
             fileInput.value = '';
             return;
         }
@@ -76,12 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
         reader.onload = function(e) {
             fileContent = e.target.result;
             fileName = file.name;
-            fileNameDisplay.textContent = `選択されたファイル: ${fileName}`;
+            fileNameDisplay.textContent = `${translations['selected_file']} ${fileName}`;
             executeBtn.disabled = false;
         };
         
         reader.onerror = function() {
-            alert('ファイルの読み込みに失敗しました。');
+            alert(translations['file_read_error']);
             fileInput.value = '';
         };
         
@@ -94,7 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function addReplacementRow() {
         const template = replacementRowTemplate.content.cloneNode(true);
         replacementRows.appendChild(template);
-        
+
+        // Apply translations to the newly added elements
+        loadLanguage(currentLang);
+
         // Scroll to bottom to show new row
         replacementRows.scrollTop = replacementRows.scrollHeight;
     }
@@ -178,14 +213,14 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function showPreview() {
         if (!fileContent) {
-            alert('ファイルが選択されていません。');
+            alert(translations['no_file_selected']);
             return;
         }
         
         const replacements = collectReplacements();
         
         if (Object.keys(replacements).length === 0) {
-            alert('置換ルールが設定されていません。');
+            alert(translations['no_replacements']);
             return;
         }
         
@@ -201,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
             previewModal.focus();
             
         } catch (error) {
-            alert('置換処理中にエラーが発生しました: ' + error.message);
+            alert(translations['processing_error'] + ' ' + error.message);
         }
     }
     
@@ -218,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function saveModifiedFile() {
         if (!modifiedContent) {
-            alert('変更されたコンテンツがありません。');
+            alert(translations['no_content_modified']);
             return;
         }
         
@@ -245,10 +280,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hide modal and show success message
             hidePreview();
-            alert('ファイルのダウンロードが完了しました。');
-            
+            alert(translations['download_complete']);
+
         } catch (error) {
-            alert('ファイルのダウンロードに失敗しました: ' + error.message);
+            alert(translations['download_error'] + ' ' + error.message);
         }
     }
     

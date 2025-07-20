@@ -5,8 +5,28 @@ import sys
 import tkinter as tk
 from tkinter import messagebox, ttk
 
+import json
 import requests
 from tools.line_tools import multi_replace
+
+
+LANG = 'ja'
+_translations = {}
+
+
+def load_language(lang):
+    global LANG, _translations
+    LANG = lang
+    lang_file = os.path.join(os.path.dirname(__file__), 'lang', f'{lang}.json')
+    try:
+        with open(lang_file, 'r', encoding='utf-8') as f:
+            _translations = json.load(f)
+    except FileNotFoundError:
+        _translations = {}
+
+
+def tr(key):
+    return _translations.get(key, key)
 
 
 class MultReplacerApp:
@@ -15,7 +35,8 @@ class MultReplacerApp:
         self.root = root
         version = self.get_version()
         self.current_version = self.get_current_version()
-        self.root.title(f"置き換え君 v{version}")
+        load_language(LANG)
+        self.root.title(tr("title").format(version=version))
         self.root.geometry("1280x720")  # Set default window size to 720p
         # GitHubリポジトリ情報
         self.repo_owner = "eightman999"
@@ -29,18 +50,24 @@ class MultReplacerApp:
         self.file_frame = tk.Frame(root)
         self.file_frame.grid(row=0, column=0, padx=10, pady=5, sticky="ew")
 
-        self.file_label = tk.Label(self.file_frame, text="パス:")
+        # Language selector
+        self.lang_var = tk.StringVar(value=LANG)
+        lang_menu = ttk.Combobox(self.file_frame, width=5, textvariable=self.lang_var, values=["ja", "en"], state="readonly")
+        lang_menu.grid(row=0, column=3, padx=5)
+        lang_menu.bind("<<ComboboxSelected>>", self.on_lang_changed)
+
+        self.file_label = tk.Label(self.file_frame, text=tr("path_label"))
         self.file_label.grid(row=0, column=0)
 
         self.file_entry = tk.Entry(self.file_frame, textvariable=self.file_path, width=100)
         self.file_entry.grid(row=0, column=1, padx=5, sticky="ew")
 
-        self.browse_button = tk.Button(self.file_frame, text="参照", command=self.browse_file)
+        self.browse_button = tk.Button(self.file_frame, text=tr("browse"), command=self.browse_file)
         self.browse_button.grid(row=0, column=2)
 
         # Caution label
         self.caution_label = tk.Label(root,
-                                      text="注意：英数変換キーなどを押すと、一文字としてカウントされることがあります！！",
+                                      text=tr("caution"),
                                       fg="red")
         self.caution_label.grid(row=1, column=0, padx=10, pady=5, sticky="w")
 
@@ -73,11 +100,11 @@ class MultReplacerApp:
         self.add_replacement_row()
 
         # Add button
-        self.add_button = tk.Button(root, text="追加", command=self.add_replacement_row)
+        self.add_button = tk.Button(root, text=tr("add"), command=self.add_replacement_row)
         self.add_button.grid(row=3, column=0, pady=5, sticky="w", padx=10)
 
         # Execute button
-        self.execute_button = tk.Button(root, text="実行", command=self.execute_replacements)
+        self.execute_button = tk.Button(root, text=tr("execute"), command=self.execute_replacements)
         self.execute_button.grid(row=3, column=1, pady=5, sticky="e", padx=10)
 
         # Configure grid for resizing
@@ -186,7 +213,7 @@ class MultReplacerApp:
         row_frame = tk.Frame(self.scrollable_frame)
         row_frame.pack(fill=tk.X, pady=2)
 
-        delete_button = tk.Button(row_frame, text="削除", command=lambda: self.delete_replacement_row(row_frame))
+        delete_button = tk.Button(row_frame, text=tr("delete"), command=lambda: self.delete_replacement_row(row_frame))
         delete_button.pack(side=tk.LEFT, padx=5)
 
         before_text = tk.Entry(row_frame, width=50)
@@ -219,7 +246,7 @@ class MultReplacerApp:
 
         # Show confirmation dialog
         confirm_dialog = tk.Toplevel(self.root)
-        confirm_dialog.title("確認")
+        confirm_dialog.title(tr("confirm_title"))
         confirm_dialog.geometry("800x600")  # Set default size for the dialog
 
         text_widget = tk.Text(confirm_dialog, wrap=tk.WORD)
@@ -230,20 +257,31 @@ class MultReplacerApp:
         button_frame = tk.Frame(confirm_dialog)
         button_frame.pack(pady=5, fill=tk.X)
 
-        cancel_button = tk.Button(button_frame, text="キャンセル", command=confirm_dialog.destroy)
+        cancel_button = tk.Button(button_frame, text=tr("cancel"), command=confirm_dialog.destroy)
         cancel_button.pack(side=tk.LEFT, padx=5)
 
-        execute_button = tk.Button(button_frame, text="実行", command=lambda: self.save_replacements(file_path, new_content, confirm_dialog))
+        execute_button = tk.Button(button_frame, text=tr("execute"), command=lambda: self.save_replacements(file_path, new_content, confirm_dialog))
         execute_button.pack(side=tk.LEFT, padx=5)
 
     def save_replacements(self, file_path, new_content, dialog):
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(new_content)
         dialog.destroy()
-        messagebox.showinfo("完了", "置換が完了しました。")
+        messagebox.showinfo(tr("completed"), tr("replace_done"))
+
+    def on_lang_changed(self, event=None):
+        load_language(self.lang_var.get())
+        version = self.get_version()
+        self.root.title(tr("title").format(version=version))
+        self.file_label.config(text=tr("path_label"))
+        self.browse_button.config(text=tr("browse"))
+        self.caution_label.config(text=tr("caution"))
+        self.add_button.config(text=tr("add"))
+        self.execute_button.config(text=tr("execute"))
 
 if __name__ == "__main__":
 
     root = tk.Tk()
+    load_language(LANG)
     app = MultReplacerApp(root)
     root.mainloop()

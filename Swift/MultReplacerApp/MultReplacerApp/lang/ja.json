@@ -1,0 +1,16 @@
+{
+    "path_label": "パス:",
+    "browse": "参照",
+    "caution": "注意：大文字と小文字は区別されます。",
+    "before": "置換前",
+    "after": "置換後",
+    "add": "追加",
+    "execute": "実行",
+    "preview_title": "置換結果のプレビュー",
+    "cancel": "キャンセル",
+    "execute_save": "実行して保存",
+    "error": "エラー",
+    "invalid_path": "無効なファイルパスです。",
+    "read_error": "ファイルの読み込みに失敗しました:",
+    "save_error": "ファイルの保存に失敗しました:"
+}

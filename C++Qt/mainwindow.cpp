@@ -89,7 +89,7 @@ void MainWindow::setupUI()
     m_fileLayout->setContentsMargins(10, 10, 10, 10);
     m_fileLayout->setSpacing(10);
     
-    m_fileLabel = new QLabel("パス:", m_fileFrame);
+    m_fileLabel = new QLabel(Translations::tr("path_label"), m_fileFrame);
     m_fileLabel->setMinimumWidth(50);
     
     m_filePathEdit = new QLineEdit(m_fileFrame);
@@ -106,7 +106,7 @@ void MainWindow::setupUI()
         "}"
     );
     
-    m_browseButton = new QPushButton("参照", m_fileFrame);
+    m_browseButton = new QPushButton(Translations::tr("browse"), m_fileFrame);
     m_browseButton->setMinimumSize(80, 30);
     m_browseButton->setStyleSheet(
         "QPushButton {"
@@ -128,9 +128,13 @@ void MainWindow::setupUI()
     m_fileLayout->addWidget(m_fileLabel);
     m_fileLayout->addWidget(m_filePathEdit, 1);
     m_fileLayout->addWidget(m_browseButton);
+    m_langCombo = new QComboBox(m_fileFrame);
+    m_langCombo->addItem("ja", QVariant::fromValue(static_cast<int>(Language::JA)));
+    m_langCombo->addItem("en", QVariant::fromValue(static_cast<int>(Language::EN)));
+    m_fileLayout->addWidget(m_langCombo);
     
     // Caution label
-    m_cautionLabel = new QLabel("注意：英数変換キーなどを押すと、一文字としてカウントされることがあります！！", m_centralWidget);
+    m_cautionLabel = new QLabel(Translations::tr("caution"), m_centralWidget);
     m_cautionLabel->setStyleSheet(
         "QLabel {"
         "    color: #e74c3c;"
@@ -209,7 +213,7 @@ void MainWindow::setupUI()
     m_controlLayout->setContentsMargins(10, 10, 10, 10);
     m_controlLayout->setSpacing(10);
     
-    m_addRowButton = new QPushButton("追加", m_controlFrame);
+    m_addRowButton = new QPushButton(Translations::tr("add"), m_controlFrame);
     m_addRowButton->setMinimumSize(100, 35);
     m_addRowButton->setStyleSheet(
         "QPushButton {"
@@ -228,7 +232,7 @@ void MainWindow::setupUI()
         "}"
     );
     
-    m_executeButton = new QPushButton("実行", m_controlFrame);
+    m_executeButton = new QPushButton(Translations::tr("execute"), m_controlFrame);
     m_executeButton->setMinimumSize(100, 35);
     m_executeButton->setStyleSheet(
         "QPushButton {"
@@ -268,6 +272,20 @@ void MainWindow::setupConnections()
     connect(m_addRowButton, &QPushButton::clicked, this, &MainWindow::onAddRowClicked);
     connect(m_executeButton, &QPushButton::clicked, this, &MainWindow::onExecuteClicked);
     connect(m_filePathEdit, &QLineEdit::textChanged, this, &MainWindow::updateExecuteButtonState);
+    connect(m_langCombo, &QComboBox::currentIndexChanged, [this](int index){
+        Language lang = static_cast<Language>(m_langCombo->currentData().toInt());
+        Translations::load(lang);
+        // Update texts
+        setWindowTitle(Translations::tr("title"));
+        m_fileLabel->setText(Translations::tr("path_label"));
+        m_browseButton->setText(Translations::tr("browse"));
+        m_cautionLabel->setText(Translations::tr("caution"));
+        m_addRowButton->setText(Translations::tr("add"));
+        m_executeButton->setText(Translations::tr("execute"));
+        for (auto* row : m_replacementRows) {
+            row->updateTexts();
+        }
+    });
 }
 
 void MainWindow::setupMenuBar()
@@ -324,6 +342,7 @@ void MainWindow::addReplacementRow()
     
     // Add to our list
     m_replacementRows.append(row);
+    row->updateTexts();
     
     // Focus on the new row
     row->focusBeforeInput();

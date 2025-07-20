@@ -1,0 +1,17 @@
+{
+  "title": "置き換え君 v{version}",
+  "path_label": "パス:",
+  "browse": "参照",
+  "caution": "注意：英数変換キーなどを押すと、一文字としてカウントされることがあります！！",
+  "add": "追加",
+  "execute": "実行",
+  "confirm_title": "確認",
+  "cancel": "キャンセル",
+  "completed": "完了",
+  "replace_done": "置換が完了しました。",
+  "invalid_path": "無効なファイルパスです。",
+  "file_read_error": "ファイルの読み込みに失敗しました:",
+  "preview_title": "置換結果のプレビュー",
+  "execute_save": "実行して保存",
+  "delete": "削除"
+}

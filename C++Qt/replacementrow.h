@@ -36,6 +36,8 @@ public:
     // Focus on the "before" input field
     void focusBeforeInput();
 
+    void updateTexts();
+
 signals:
     // Emitted when the delete button is clicked
     void deleteRequested();

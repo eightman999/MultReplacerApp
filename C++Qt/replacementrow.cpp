@@ -1,4 +1,5 @@
 #include "replacementrow.h"
+#include "translations.h"
 
 ReplacementRowWidget::ReplacementRowWidget(QWidget *parent)
     : QWidget(parent)
@@ -20,7 +21,7 @@ void ReplacementRowWidget::setupUI()
     m_layout->setSpacing(10);
     
     // Create delete button
-    m_deleteButton = new QPushButton("削除", this);
+    m_deleteButton = new QPushButton(Translations::tr("delete"), this);
     m_deleteButton->setFixedSize(60, 30);
     m_deleteButton->setStyleSheet(
         "QPushButton {"
@@ -40,7 +41,7 @@ void ReplacementRowWidget::setupUI()
     
     // Create "before" input field
     m_beforeInput = new QLineEdit(this);
-    m_beforeInput->setPlaceholderText("置換前のテキスト");
+    m_beforeInput->setPlaceholderText(Translations::tr("before_placeholder"));
     m_beforeInput->setMinimumHeight(30);
     
     // Create arrow label
@@ -51,7 +52,7 @@ void ReplacementRowWidget::setupUI()
     
     // Create "after" input field
     m_afterInput = new QLineEdit(this);
-    m_afterInput->setPlaceholderText("置換後のテキスト");
+    m_afterInput->setPlaceholderText(Translations::tr("after_placeholder"));
     m_afterInput->setMinimumHeight(30);
     
     // Add widgets to layout
@@ -124,6 +125,13 @@ void ReplacementRowWidget::clear()
 void ReplacementRowWidget::focusBeforeInput()
 {
     m_beforeInput->setFocus();
+}
+
+void ReplacementRowWidget::updateTexts()
+{
+    m_deleteButton->setText(Translations::tr("delete"));
+    m_beforeInput->setPlaceholderText(Translations::tr("before_placeholder"));
+    m_afterInput->setPlaceholderText(Translations::tr("after_placeholder"));
 }
 
 void ReplacementRowWidget::onDeleteClicked()
